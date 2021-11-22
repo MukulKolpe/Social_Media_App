@@ -27,16 +27,6 @@
             android:textSize="@dimen/_16sdp" />
 
         <ImageView
-            android:id="@+id/img_settings"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_12sdp"
-            android:background="@drawable/settings"
-            android:clickable="true"
-            />
-
-        <ImageView
             android:id="@+id/img_logOut"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"

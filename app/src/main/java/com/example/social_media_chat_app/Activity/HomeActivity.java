@@ -64,7 +64,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
         imgLogout=findViewById(R.id.img_logOut);
-        img_settings=findViewById(R.id.img_settings);
         mainUserRecyclerView=findViewById(R.id.mainUserRecyclerView);
         mainUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new UserAdapter(HomeActivity.this, usersArrayList);
@@ -101,14 +100,6 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
-        img_settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Settings...", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(HomeActivity.this, SettingActivity.class));
-            }
-        });
-
 
         if(auth.getCurrentUser()==null){
             startActivity(new Intent(HomeActivity.this, RegistrationActivity.class));

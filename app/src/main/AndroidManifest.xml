@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SocialMediaChatApp">
         <activity
-            android:name=".Activity.SettingActivity"
-            android:exported="true" />
-        <activity
             android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
