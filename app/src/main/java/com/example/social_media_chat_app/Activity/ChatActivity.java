@@ -1,8 +1,10 @@
 package com.example.social_media_chat_app.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +42,7 @@ public class ChatActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     public static String sImage;
     public static String rImage;
+    ImageView back_btn;
 
     CardView sendBtn;
     EditText edtMessage;
@@ -70,6 +73,7 @@ public class ChatActivity extends AppCompatActivity {
         receiversName=findViewById(R.id.receiversName);
 
         messageAdapter=findViewById(R.id.messageAdapter);
+        back_btn=findViewById(R.id.back_btn);
 
        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
        linearLayoutManager.setStackFromEnd(true);
@@ -158,7 +162,16 @@ public class ChatActivity extends AppCompatActivity {
                 });
             }
         });
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChatActivity.this,HomeActivity.class));
+                Toast.makeText(ChatActivity.this, "Back", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
+    
+    
 }

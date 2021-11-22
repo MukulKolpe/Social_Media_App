@@ -34,90 +34,89 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:src="@drawable/profile"
-            app:civ_border_color="#FF000000"
-            />
+            app:civ_border_color="#FF000000" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_270sdp"
             android:layout_height="@dimen/_240sdp"
             android:layout_gravity="center"
-            app:cardCornerRadius="@dimen/_30sdp"
-            >
+            android:layout_marginTop="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_30sdp">
+
             <LinearLayout
                 android:layout_width="@dimen/_270sdp"
                 android:layout_height="@dimen/_240sdp"
-                android:orientation="vertical"
                 android:background="@drawable/gradient_color"
-                >
+                android:orientation="vertical">
 
 
-        <EditText
-            android:id="@+id/reg_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:autofillHints="name"
-            android:background="@drawable/edittext_shape"
-            android:fontFamily="@font/spartan_regular"
-            android:hint="Name..."
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+                <EditText
+                    android:id="@+id/reg_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:autofillHints="name"
+                    android:fontFamily="@font/spartan_regular"
+                    android:background="@drawable/edittext_shape"
+                    android:hint="Name..."
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/reg_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:autofillHints="emailAddress"
-            android:background="@drawable/edittext_shape"
-            android:fontFamily="@font/spartan_regular"
-            android:hint="Email Address..."
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+                <EditText
+                    android:id="@+id/reg_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:autofillHints="emailAddress"
+                    android:background="@drawable/edittext_shape"
+                    android:fontFamily="@font/spartan_regular"
+                    android:hint="Email Address..."
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/reg_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/edittext_shape"
-            android:fontFamily="@font/spartan_regular"
-            android:hint="Password..."
-            android:inputType="textPassword"
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+                <EditText
+                    android:id="@+id/reg_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/edittext_shape"
+                    android:fontFamily="@font/spartan_regular"
+                    android:hint="Password..."
+                    android:inputType="textPassword"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
 
-        <EditText
-            android:id="@+id/reg_cPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/edittext_shape"
-            android:fontFamily="@font/spartan_regular"
-            android:hint="Confirm Password..."
-            android:inputType="textPassword"
-            android:padding="@dimen/_8sdp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+                <EditText
+                    android:id="@+id/reg_cPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/edittext_shape"
+                    android:fontFamily="@font/spartan_regular"
+                    android:hint="Confirm Password..."
+                    android:inputType="textPassword"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -137,7 +136,7 @@
             android:gravity="center"
             android:padding="@dimen/_10sdp"
             android:text="Sign Up"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/_14sdp" />
 
     </LinearLayout>

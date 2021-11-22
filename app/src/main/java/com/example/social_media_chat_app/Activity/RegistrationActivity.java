@@ -109,7 +109,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if(task.isSuccessful()){
                                                                     progressDialog.dismiss();
-                                                                   startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
+                                                                   startActivity(new Intent(RegistrationActivity.this, ProfileActivity.class));
                                                                 }else{
                                                                     Toast.makeText(RegistrationActivity.this, "Error in creating a new user", Toast.LENGTH_SHORT).show();
                                                                 }
@@ -131,7 +131,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
+                                                startActivity(new Intent(RegistrationActivity.this, ProfileActivity.class));
                                             }else{
                                                 Toast.makeText(RegistrationActivity.this, "Error in creating a new user", Toast.LENGTH_SHORT).show();
                                             }

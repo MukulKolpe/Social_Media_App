@@ -37,11 +37,28 @@
 
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainUserRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="@dimen/_5sdp" />
+
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/mainUserRecyclerView"
+        android:elevation="@dimen/_50sdp"
+        app:abb_indicatorColor="@color/primary_purple"
+        app:abb_tabColor="@color/primary_purple"
+        app:abb_tabColorSelected="@color/primary_purple"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorHeight="4dp"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="0"
+        app:abb_selectedTabType="icon"
+        app:abb_tabs="@menu/tabs" />
 
 </RelativeLayout>
