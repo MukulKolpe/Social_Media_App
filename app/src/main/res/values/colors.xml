@@ -7,6 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="primary_purple">#276FDA</color>
-    <color name="Status_Bar_Color">#e0c3fc</color>
+    <color name="primary_purple">#28c6f5</color>
+    <color name="Status_Bar_Color">#28c6f5</color>
 </resources>

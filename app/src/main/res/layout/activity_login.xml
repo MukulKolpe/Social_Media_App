@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.LoginActivity"
-    android:background="#DAE2F9">
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,9 +15,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/_80sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:background="@drawable/logo" />
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/logo"
+            android:layout_marginBottom="@dimen/_20sdp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -27,7 +28,21 @@
             android:text="Welcome Back!!"
             android:textColor="@color/black"
             android:textSize="@dimen/_25sdp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/_15sdp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_30sdp"
+            >
+            <LinearLayout
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:orientation="vertical"
+                android:background="@drawable/gradient_color"
+                >
 
         <EditText
             android:id="@+id/login_email"
@@ -62,6 +77,9 @@
             android:inputType="textPassword"
             android:padding="@dimen/_8sdp"
             android:textColor="@color/black" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/signin_btn"

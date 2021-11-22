@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.RegistrationActivity"
-    android:background="@drawable/gradient_color">
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +34,21 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:src="@drawable/profile"
-            app:civ_border_color="#FF000000" />
+            app:civ_border_color="#FF000000"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_240sdp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="@dimen/_30sdp"
+            >
+            <LinearLayout
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="@dimen/_240sdp"
+                android:orientation="vertical"
+                android:background="@drawable/gradient_color"
+                >
 
 
         <EditText
@@ -104,6 +118,9 @@
             android:padding="@dimen/_8sdp"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/btn_SignUp"

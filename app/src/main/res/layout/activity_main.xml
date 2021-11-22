@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity"
-    android:background="#D4D5DA">
+    android:background="#fff">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,9 +16,9 @@
 
         >
         <ImageView
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
-            android:background="@drawable/logo_splash"/>
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:background="@drawable/logo"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
