@@ -34,8 +34,8 @@
         app:abb_indicatorMargin="16dp"
         app:abb_selectedIndex="1"
         app:abb_selectedTabType="icon"
-        app:abb_tabColor="@color/primary_purple"
-        app:abb_tabColorSelected="@color/primary_purple"
+        app:abb_tabColor="@color/white"
+        app:abb_tabColorSelected="@color/white"
         app:abb_tabs="@menu/tabs"
         app:layout_constraintBottom_toBottomOf="@+id/mainUserRecyclerView"
         app:layout_constraintStart_toStartOf="parent" />

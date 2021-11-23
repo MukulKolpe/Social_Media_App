@@ -5,6 +5,7 @@ import static com.example.social_media_chat_app.Activity.ChatActivity.sImage;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,6 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.social_media_chat_app.ModelClass.Messages;
 import com.example.social_media_chat_app.R;
+import com.github.pgreze.reactions.ReactionPopup;
+import com.github.pgreze.reactions.ReactionsConfig;
+import com.github.pgreze.reactions.ReactionsConfigBuilder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
@@ -52,13 +56,42 @@ public class MessagesAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Messages messages=messagesArrayList.get(position);
 
+        ReactionsConfig config = new ReactionsConfigBuilder(context)
+                .withReactions(new int[]{
+                        R.drawable.ic_fb_like,
+                        R.drawable.ic_fb_love,
+                        R.drawable.ic_fb_laugh,
+                        R.drawable.ic_fb_wow,
+                        R.drawable.ic_fb_sad,
+                        R.drawable.ic_fb_angry
+                })
+                .build();
+
+        ReactionPopup popup = new ReactionPopup(context, config, (pos) -> {
+            return true; // true is closing popup, false is requesting a new selection
+        });
+
         if(holder.getClass()==senderViewHolder.class){
             senderViewHolder viewHolder=(senderViewHolder) holder;
             viewHolder.txtmessage.setText(messages.getMessage());
+            viewHolder.txtmessage.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popup.onTouch(v,event);
+                    return false;
+                }
+            });
             Picasso.get().load(sImage).into(viewHolder.circleImageView);
         }else {
             ReceiverViewHolder viewHolder=(ReceiverViewHolder) holder;
             viewHolder.txtmessage.setText(messages.getMessage());
+            viewHolder.txtmessage.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popup.onTouch(v,event);
+                    return false;
+                }
+            });
             Picasso.get().load(rImage).into(viewHolder.circleImageView);
 
         }

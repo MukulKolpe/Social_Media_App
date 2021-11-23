@@ -50,7 +50,8 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Users users= dataSnapshot.getValue(Users.class);
-                    usersArrayList.add(users);
+                    if(!users.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                        usersArrayList.add(users);
 
                 }
                 adapter.notifyDataSetChanged();
