@@ -34,10 +34,11 @@
                 android:text="Name"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#838383"/>
+                android:background="#838383" />
 
             <TextView
                 android:id="@+id/user_status"
@@ -46,7 +47,7 @@
                 android:fontFamily="@font/spartan_regular"
                 android:text="Status"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp"/>
+                android:textSize="@dimen/_10sdp" />
 
         </LinearLayout>
 

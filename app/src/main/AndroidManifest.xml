@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SocialMediaChatApp">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".Activity.ProfileActivity"
             android:exported="true" />
@@ -28,6 +28,8 @@
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.RegistrationActivity" />
         <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.StoriesActivity"/>
+        <activity android:name=".Activity.GroupChatActivity"/>
     </application>
 
 </manifest>

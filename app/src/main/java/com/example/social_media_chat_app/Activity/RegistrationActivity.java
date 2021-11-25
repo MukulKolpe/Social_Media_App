@@ -61,7 +61,7 @@ public class RegistrationActivity extends AppCompatActivity {
         reg_cPassword=findViewById(R.id.reg_cPass);
         btn_SignUp=findViewById(R.id.btn_SignUp);
 
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
 
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +109,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if(task.isSuccessful()){
                                                                     progressDialog.dismiss();
-                                                                   startActivity(new Intent(RegistrationActivity.this, ProfileActivity.class));
+                                                                   startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
                                                                 }else{
                                                                     Toast.makeText(RegistrationActivity.this, "Error in creating a new user", Toast.LENGTH_SHORT).show();
                                                                 }
@@ -131,7 +131,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                startActivity(new Intent(RegistrationActivity.this, ProfileActivity.class));
+                                                startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
                                             }else{
                                                 Toast.makeText(RegistrationActivity.this, "Error in creating a new user", Toast.LENGTH_SHORT).show();
                                             }

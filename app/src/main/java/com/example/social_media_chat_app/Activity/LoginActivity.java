@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         login_email=findViewById(R.id.login_email);
         login_password=findViewById(R.id.login_password);
 
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
 
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override

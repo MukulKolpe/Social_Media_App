@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.social_media_chat_app"
         minSdk 21
@@ -46,6 +50,8 @@ dependencies {
 
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
     implementation "com.github.pgreze:android-reactions:1.6"
+    implementation 'com.github.3llomi:CircularStatusView:V1.0.2'
+    implementation 'com.github.OMARIHAMZA:StoryView:1.0.2-alpha'
 
 
 }

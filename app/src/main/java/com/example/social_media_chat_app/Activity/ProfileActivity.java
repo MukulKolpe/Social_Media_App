@@ -30,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        getSupportActionBar().hide();
+      //  getSupportActionBar().hide();
 
         btn_continue=findViewById(R.id.btn_continue);
         btn_skip=findViewById(R.id.btn_skip);

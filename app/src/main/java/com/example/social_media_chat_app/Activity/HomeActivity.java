@@ -3,6 +3,7 @@ package com.example.social_media_chat_app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +34,8 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseDatabase database;
     ArrayList<Users> usersArrayList;
     ImageView imgLogout,img_settings;
+    ImageView storyBtn;
+    View StoryBtnLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         usersArrayList= new ArrayList<>();
-        getSupportActionBar().hide();
+     //   getSupportActionBar().hide();
 
         DatabaseReference reference=database.getReference().child("user");
         reference.addValueEventListener(new ValueEventListener() {
@@ -69,6 +72,15 @@ public class HomeActivity extends AppCompatActivity {
         mainUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new UserAdapter(HomeActivity.this, usersArrayList);
         mainUserRecyclerView.setAdapter(adapter);
+        storyBtn=findViewById(R.id.storyBtn);
+
+        storyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Clicking", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, StoriesActivity.class));
+            }
+        });
 
         imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,9 +114,12 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+
         if(auth.getCurrentUser()==null){
             startActivity(new Intent(HomeActivity.this, RegistrationActivity.class));
 
         }
     }
+
 }
