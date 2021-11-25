@@ -1,9 +1,12 @@
 package com.example.social_media_chat_app.Activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +39,12 @@ public class LoginActivity extends AppCompatActivity {
         signin_btn=findViewById(R.id.signin_btn);
         login_email=findViewById(R.id.login_email);
         login_password=findViewById(R.id.login_password);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
+        }
 
        // getSupportActionBar().hide();
 

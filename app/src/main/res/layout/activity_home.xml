@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_46sdp"
+        android:layout_height="@dimen/_42sdp"
         android:background="@drawable/toolbar_item"
         android:gravity="right"
         android:orientation="horizontal">
@@ -23,16 +23,18 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_weight="1"
             android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_16sdp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            />
 
         <ImageView
             android:id="@+id/img_logOut"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
             android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginRight="@dimen/_14sdp"
             android:background="@drawable/off"
+            android:backgroundTint="@color/black"
             android:clickable="true" />
 
     </LinearLayout>
@@ -51,9 +53,10 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_alignParentBottom="true"
         android:elevation="@dimen/_60sdp"
-        android:background="@color/primary_purple"
-        tools:ignore="ExtraText">
+        android:background="@drawable/storybuttonlayout"
+        tools:ignore="ExtraText"
         >
+
 
         <ImageView
             android:id="@+id/storyBtn"

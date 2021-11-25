@@ -6,25 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".Activity.StoriesActivity"
     android:background="@color/white">
+
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_46sdp"
+        android:layout_height="@dimen/_42sdp"
         android:background="@drawable/toolbar_item"
-        android:outlineAmbientShadowColor="@color/white"
         android:gravity="left"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:outlineAmbientShadowColor="@color/white">
 
 
         <ImageView
             android:id="@+id/back_btn"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
             android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_12sdp"
             android:background="@drawable/backbutton"
             android:clickable="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Stories"
+            android:layout_marginRight="@dimen/_29sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp"
+            />
 
     </LinearLayout>
 
@@ -40,11 +52,12 @@
 
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="@dimen/_40sdp" android:layout_alignParentBottom="true"
-        android:background="@color/primary_purple"
+        android:background="@drawable/storybuttonlayout"
         android:elevation="@dimen/_60sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="ExtraText">
+        tools:ignore="ExtraText"
         >
+
 
         <ImageView
             android:id="@+id/storySubmitBtn"
@@ -54,7 +67,8 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/story"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription"
+            android:backgroundTint="@color/white"/>
     </LinearLayout>
 
 
