@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".Activity.SettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.ProfileActivity"
             android:exported="true" />
         <activity
@@ -28,8 +31,8 @@
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".Activity.RegistrationActivity" />
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.StoriesActivity"/>
-        <activity android:name=".Activity.GroupChatActivity"/>
+        <activity android:name=".Activity.StoriesActivity" />
+        <activity android:name=".Activity.GroupChatActivity" />
     </application>
 
 </manifest>

@@ -62,7 +62,8 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        binding = ActivityChatBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
        // getSupportActionBar().hide();
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();
@@ -98,7 +99,7 @@ public class ChatActivity extends AppCompatActivity {
 
 
         Picasso.get().load(ReceiversImage).into(profileImage);
-        receiversName.setText(""+ReceiversName);
+        binding.receiversName.setText(""+ReceiversName);
 
         SenderUID=firebaseAuth.getUid();
         senderRoom=SenderUID + ReceiversUID;

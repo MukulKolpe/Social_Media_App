@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     UserAdapter adapter;
     FirebaseDatabase database;
     ArrayList<Users> usersArrayList;
-    ImageView imgLogout,img_settings;
+    ImageView imgLogout,img_setting;
     ImageView storyBtn,groupBtn;
     View StoryBtnLayout;
 
@@ -89,6 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter=new UserAdapter(HomeActivity.this, usersArrayList);
         mainUserRecyclerView.setAdapter(adapter);
         storyBtn=findViewById(R.id.storyBtn);
+        img_setting=findViewById(R.id.img_setting);
 
         storyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +128,12 @@ public class HomeActivity extends AppCompatActivity {
 
                 dialog.show();
 
+            }
+        });
+        img_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, SettingActivity.class));
             }
         });
 
