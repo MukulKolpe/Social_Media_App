@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseDatabase database;
     ArrayList<Users> usersArrayList;
     ImageView imgLogout,img_settings;
-    ImageView storyBtn;
+    ImageView storyBtn,groupBtn;
     View StoryBtnLayout;
 
     @Override
@@ -48,6 +48,13 @@ public class HomeActivity extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         usersArrayList= new ArrayList<>();
+        groupBtn=findViewById(R.id.groupBtn);
+        groupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this, GroupChatActivity.class));
+            }
+        });
      //   getSupportActionBar().hide();
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = this.getWindow();

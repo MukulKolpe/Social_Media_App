@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.social_media_chat_app.Adapter.MessagesAdapter;
 import com.example.social_media_chat_app.ModelClass.Messages;
 import com.example.social_media_chat_app.R;
+import com.example.social_media_chat_app.databinding.ActivityChatBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,6 +57,7 @@ public class ChatActivity extends AppCompatActivity {
     ArrayList<Messages> messagesArrayList;
 
     MessagesAdapter adapter;
+    ActivityChatBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

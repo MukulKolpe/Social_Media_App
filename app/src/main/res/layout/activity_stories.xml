@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/back_btn"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_12sdp"
@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Stories"
-            android:layout_marginRight="@dimen/_29sdp"
+            android:layout_marginRight="@dimen/_32sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_18sdp"
             />
@@ -56,19 +56,42 @@
         android:elevation="@dimen/_60sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="ExtraText"
+        android:orientation="horizontal"
+        android:gravity="center"
         >
+        <ImageView
+            android:id="@+id/chatBtn"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/chat"
+            tools:ignore="ContentDescription"
+            />
 
 
         <ImageView
             android:id="@+id/storySubmitBtn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_37sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_28sdp"
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/story"
             tools:ignore="ContentDescription"
             android:backgroundTint="@color/white"/>
+
+        <ImageView
+            android:id="@+id/groupBtn"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/black"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/groups"
+            tools:ignore="ContentDescription" />
     </LinearLayout>
 
 

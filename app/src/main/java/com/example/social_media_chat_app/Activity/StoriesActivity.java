@@ -51,7 +51,7 @@ public class StoriesActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseDatabase database;
     FirebaseAuth auth;
-    ImageView back_btn;
+    ImageView back_btn,chatBtn,groupBtn;
 
     Users users;
 
@@ -72,6 +72,21 @@ public class StoriesActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
         }
         back_btn=findViewById(R.id.back_btn);
+        chatBtn=findViewById(R.id.chatBtn);
+        groupBtn=findViewById(R.id.groupBtn);
+        groupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StoriesActivity.this, GroupChatActivity.class));
+            }
+        });
+
+        chatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StoriesActivity.this, HomeActivity.class));
+            }
+        });
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
