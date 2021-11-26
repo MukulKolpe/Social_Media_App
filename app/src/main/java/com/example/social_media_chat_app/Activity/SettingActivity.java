@@ -4,10 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,25 +38,37 @@ public class SettingActivity extends AppCompatActivity {
 
     ImageView setting_image;
     EditText setting_name,setting_status;
-    TextView save;
+    TextView save,btn_logout;
     FirebaseAuth auth;
     FirebaseDatabase database;
     FirebaseStorage storage;
     Uri selectedImageUri;
     String email;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
+        }
+
 
         auth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         storage=FirebaseStorage.getInstance();
+        btn_logout=findViewById(R.id.btn_logout);
 
         setting_image=findViewById(R.id.setting_image);
         setting_name=findViewById(R.id.setting_name);
         setting_status=findViewById(R.id.setting_status);
+        progressDialog= new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+        progressDialog.setCancelable(false);
 
         save=findViewById(R.id.save);
         DatabaseReference reference=database.getReference().child("user").child(auth.getUid());
@@ -84,10 +101,42 @@ public class SettingActivity extends AppCompatActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 10);
             }
         });
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog=new Dialog(SettingActivity.this, R.style.Dialoge);
+
+                dialog.setContentView(R.layout.dialog_layout);
+                dialog.show();
+                TextView yesBtn, noBtn;
+
+                yesBtn=dialog.findViewById(R.id.yesBtn);
+                noBtn=dialog.findViewById(R.id.noBtn);
+
+                yesBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(SettingActivity.this, LoginActivity.class));
+                    }
+                });
+                noBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+                dialog.show();
+
+            }
+        });
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                String name= setting_name.getText().toString();
                String status= setting_status.getText().toString();
 
@@ -104,9 +153,11 @@ public class SettingActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
+                                                progressDialog.dismiss();
                                                 Toast.makeText(SettingActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
                                                 startActivity(new Intent(SettingActivity.this, HomeActivity.class));
                                             }else{
+                                                progressDialog.dismiss();
                                                 Toast.makeText(SettingActivity.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
                                             }
 
@@ -127,9 +178,11 @@ public class SettingActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
+                                        progressDialog.dismiss();
                                         Toast.makeText(SettingActivity.this, "Successfully Updated", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(SettingActivity.this, HomeActivity.class));
                                     }else{
+                                        progressDialog.dismiss();
                                         Toast.makeText(SettingActivity.this, "Something went wrong!!", Toast.LENGTH_SHORT).show();
                                     }
 

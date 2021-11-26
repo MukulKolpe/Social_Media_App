@@ -38,14 +38,14 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="@dimen/_270sdp"
-            android:layout_height="@dimen/_240sdp"
+            android:layout_height="@dimen/_222sdp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_5sdp"
-            app:cardCornerRadius="@dimen/_30sdp">
+            app:cardCornerRadius="@dimen/_20sdp">
 
             <LinearLayout
                 android:layout_width="@dimen/_270sdp"
-                android:layout_height="@dimen/_240sdp"
+                android:layout_height="@dimen/_222sdp"
                 android:background="@drawable/gradient_color"
                 android:orientation="vertical">
 

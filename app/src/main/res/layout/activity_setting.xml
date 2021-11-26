@@ -64,5 +64,30 @@
         android:clickable="true"
         android:focusable="true" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/dotted" />
+
+    <TextView
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@drawable/skip_btn"
+        android:fontFamily="@font/spartan_bold"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp"
+        android:text="Logout"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_16sdp"
+        />
+
 
 </LinearLayout>
