@@ -1,10 +1,18 @@
 package com.example.social_media_chat_app.ModelClass;
 
 public class Messages {
-    String message, messageId;
+    String message, messageId, imageUrl;
     String senderId;
     long timeStamp;
     int feeling = -1;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public String getMessageId() {
         return messageId;

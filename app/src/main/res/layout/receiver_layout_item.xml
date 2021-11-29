@@ -8,46 +8,63 @@
         android:id="@+id/profile_image"
         android:layout_width="@dimen/_28sdp"
         android:layout_height="@dimen/_28sdp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="@dimen/_5sdp"
-        android:src="@drawable/profile"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp" />
-
-    <TextView
-        android:id="@+id/txtMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_toRightOf="@+id/profile_image"
+        android:src="@drawable/profile"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:background="@drawable/receiver_shape"
-        android:paddingStart="@dimen/_7sdp"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingEnd="@dimen/_12sdp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="13sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_toRightOf="@+id/profile_image">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="190dp"
+        android:layout_height="124dp"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:srcCompat="@drawable/profile" />
+
+        <TextView
+            android:id="@+id/txtMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_7sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/feeling"
-        android:layout_width="18dp"
-        android:layout_height="14dp"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
         android:layout_alignParentTop="true"
         android:layout_marginStart="-8dp"
         android:layout_marginTop="17dp"
-        android:layout_toEndOf="@+id/txtMessages"
+        android:layout_toEndOf="@+id/linearLayout2"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/txtMessages"
-        app:layout_constraintEnd_toEndOf="@+id/txtMessages"
-        app:layout_constraintStart_toEndOf="@+id/txtMessages"
-        app:layout_constraintTop_toTopOf="@+id/txtMessages"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
         app:srcCompat="@drawable/ic_fb_love" />
 
 </RelativeLayout>

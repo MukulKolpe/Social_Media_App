@@ -106,6 +106,12 @@ public class MessagesAdapter extends RecyclerView.Adapter {
 
         if (holder.getClass() == senderViewHolder.class) {
             senderViewHolder viewHolder = (senderViewHolder) holder;
+
+            if(messages.getMessage().equals("photo")){
+                viewHolder.binding.image.setVisibility(View.VISIBLE);
+                viewHolder.binding.txtMessages.setVisibility(View.GONE);
+                Picasso.get().load(messages.getImageUrl()).placeholder(R.drawable.placeholder).into(viewHolder.binding.image);
+            }
             viewHolder.binding.txtMessages.setText(messages.getMessage());
             if(messages.getFeeling() >= 0){
                viewHolder.binding.feeling.setImageResource(reactions[messages.getFeeling()]);
@@ -120,9 +126,22 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
+            viewHolder.binding.image.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popup.onTouch(v, event);
+                    return false;
+                }
+            });
             Picasso.get().load(sImage).into(viewHolder.circleImageView);
         } else {
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
+
+            if(messages.getMessage().equals("photo")){
+                viewHolder.binding.image.setVisibility(View.VISIBLE);
+                viewHolder.binding.txtMessages.setVisibility(View.GONE);
+                Picasso.get().load(messages.getImageUrl()).placeholder(R.drawable.placeholder).into(viewHolder.binding.image);
+            }
             viewHolder.binding.txtMessages.setText(messages.getMessage());
             if(messages.getFeeling() >= 0){
                 viewHolder.binding.feeling.setImageResource(reactions[messages.getFeeling()]);
@@ -131,6 +150,13 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                 viewHolder.binding.feeling.setVisibility(View.GONE);
             }
             viewHolder.binding.txtMessages.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    popup.onTouch(v, event);
+                    return false;
+                }
+            });
+            viewHolder.binding.image.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     popup.onTouch(v, event);
