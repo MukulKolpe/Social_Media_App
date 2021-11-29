@@ -87,10 +87,13 @@ public class ChatActivity extends AppCompatActivity {
         messageAdapter=findViewById(R.id.messageAdapter);
         back_btn=findViewById(R.id.back_btn);
 
-       LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
-       linearLayoutManager.setStackFromEnd(true);
-       messageAdapter.setLayoutManager(linearLayoutManager);
-       adapter= new MessagesAdapter(ChatActivity.this,messagesArrayList);
+        SenderUID=firebaseAuth.getUid();
+        senderRoom=SenderUID + ReceiversUID;
+        receiverRoom=ReceiversUID + SenderUID;
+       adapter= new MessagesAdapter(ChatActivity.this,messagesArrayList,senderRoom, receiverRoom);
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
+        linearLayoutManager.setStackFromEnd(true);
+        messageAdapter.setLayoutManager(linearLayoutManager);
        messageAdapter.setAdapter(adapter);
 
 
@@ -101,9 +104,6 @@ public class ChatActivity extends AppCompatActivity {
         Picasso.get().load(ReceiversImage).into(profileImage);
         binding.receiversName.setText(""+ReceiversName);
 
-        SenderUID=firebaseAuth.getUid();
-        senderRoom=SenderUID + ReceiversUID;
-        receiverRoom=ReceiversUID + SenderUID;
 
         DatabaseReference reference= database.getReference().child("user").child(firebaseAuth.getUid());
         DatabaseReference chatReference= database.getReference().child("chats").child(senderRoom).child("messages");
@@ -113,8 +113,9 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 messagesArrayList.clear();
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Messages messages=dataSnapshot.getValue(Messages.class);
+                    messages.setMessageId(snapshot.getKey());
                     messagesArrayList.add(messages);
                 }
                 adapter.notifyDataSetChanged();
@@ -152,18 +153,22 @@ public class ChatActivity extends AppCompatActivity {
 
                 Messages messages= new Messages(message, SenderUID, date.getTime());
 
+                String randomKey=database.getReference().push().getKey();
+
                 database=FirebaseDatabase.getInstance();
+                assert randomKey != null;
                 database.getReference().child("chats")
                         .child(senderRoom)
                         .child("messages")
-                        .push()
+                        .child(randomKey)
                         .setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         database.getReference().child("chats")
                                 .child(receiverRoom)
                                 .child("messages")
-                                .push().setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                .child(randomKey)
+                                .setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
 

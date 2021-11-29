@@ -1,9 +1,26 @@
 package com.example.social_media_chat_app.ModelClass;
 
 public class Messages {
-    String message;
+    String message, messageId;
     String senderId;
     long timeStamp;
+    int feeling = -1;
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    public int getFeeling() {
+        return feeling;
+    }
+
+    public void setFeeling(int feeling) {
+        this.feeling = feeling;
+    }
 
     public Messages() {
     }

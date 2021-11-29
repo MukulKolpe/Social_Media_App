@@ -70,27 +70,47 @@
         android:layout_marginTop="@dimen/_2sdp"
         android:layout_marginEnd="@dimen/_2sdp"
         android:layout_marginBottom="@dimen/_2sdp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="@dimen/_39sdp"
             android:layout_margin="@dimen/_3sdp"
             android:layout_weight="1"
             app:cardBackgroundColor="#CAECFB"
-            app:cardCornerRadius="@dimen/_600sdp">
+            app:cardCornerRadius="@dimen/_500sdp">
 
             <EditText
                 android:id="@+id/edtMessage"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_188sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
                 android:fontFamily="@font/spartan_regular"
-                android:hint="Type your message..."
+                android:hint="message..."
                 android:paddingStart="@dimen/_7sdp"
-                android:paddingLeft="@dimen/_8sdp"
+                android:textColorHint="#9BC3EF"
                 android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/attachment"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_192sdp"
+                app:srcCompat="@drawable/ic_attachment"
+                app:tint="#508ED3"
+                android:layout_gravity="center_vertical"/>
+
+            <ImageView
+                android:id="@+id/camera"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_220sdp"
+                app:srcCompat="@drawable/ic_camera"
+                app:tint="#508ED3"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="@dimen/_3sdp"/>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
