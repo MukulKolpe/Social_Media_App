@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_height="@dimen/_95sdp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -31,7 +31,7 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_58sdp"
+            android:layout_marginLeft="@dimen/_56sdp"
             android:src="@drawable/profile"
             app:civ_border_color="@color/primary_purple"
             app:civ_border_width="1dp" />
@@ -39,27 +39,47 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/receiversName"
+    <LinearLayout
+        android:id="@+id/profile_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll1"
         android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:fontFamily="@font/spartan_bold"
         android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_17sdp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/receiversName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spartan_bold"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17sdp" />
+
+        <TextView
+            android:id="@+id/receiversStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/receiversName"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:fontFamily="@font/spartan_regular"
+            android:gravity="center"
+            android:text="Online"
+            android:textColor="@color/black"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messageAdapter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ll3"
-        android:layout_below="@+id/receiversName" />
+        android:layout_below="@+id/profile_info" />
 
     <LinearLayout
         android:id="@+id/ll3"

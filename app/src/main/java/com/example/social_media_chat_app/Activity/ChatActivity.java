@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -100,6 +103,28 @@ public class ChatActivity extends AppCompatActivity {
 
         messageAdapter=findViewById(R.id.messageAdapter);
         back_btn=findViewById(R.id.back_btn);
+
+        database.getReference().child("presence").child(ReceiversUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String status=snapshot.getValue(String.class);
+                    if(!status.isEmpty()){
+                        if(status.equals("Offline")){
+                            binding.receiversStatus.setVisibility(View.GONE);
+                        }else{
+                            binding.receiversStatus.setText(status);
+                            binding.receiversStatus.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         SenderUID=firebaseAuth.getUid();
         senderRoom=SenderUID + ReceiversUID;
@@ -209,8 +234,46 @@ public class ChatActivity extends AppCompatActivity {
                 startActivityForResult(intent, 25);
             }
         });
+        final Handler handler= new Handler();
+        binding.edtMessage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                database.getReference().child("presence").child(SenderUID).setValue("typing...");
+                handler.removeCallbacksAndMessages(null);
+                handler.postDelayed(userStoppedTyping,1000);
+            }
+
+            Runnable userStoppedTyping= new Runnable() {
+                @Override
+                public void run() {
+                    database.getReference().child("presence").child(SenderUID).setValue("Online");
+                }
+            };
+        });
 
 
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String currentId=FirebaseAuth.getInstance().getUid();
+        database.getReference().child("presence").child(currentId).setValue("Online");
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        String currentId=FirebaseAuth.getInstance().getUid();
+        database.getReference().child("presence").child(currentId).setValue("Offline");
     }
 
     @Override

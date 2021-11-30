@@ -130,6 +130,8 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+
         img_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,4 +147,17 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String currentId=FirebaseAuth.getInstance().getUid();
+        database.getReference().child("presence").child(currentId).setValue("Online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        String currentId=FirebaseAuth.getInstance().getUid();
+        database.getReference().child("presence").child(currentId).setValue("Offline");
+    }
 }
