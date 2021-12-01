@@ -84,19 +84,21 @@ public class ChatActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
         }
+        database=FirebaseDatabase.getInstance();
+        firebaseAuth=FirebaseAuth.getInstance();
+        storage=FirebaseStorage.getInstance();
+
         dialog= new ProgressDialog(this);
         dialog.setMessage("Uploading image...");
         dialog.setCancelable(false);
 
-        database=FirebaseDatabase.getInstance();
-        firebaseAuth=FirebaseAuth.getInstance();
-        storage=FirebaseStorage.getInstance();
+
+        messagesArrayList=new ArrayList<>();
 
         ReceiversName=getIntent().getStringExtra("name");
         ReceiversImage=getIntent().getStringExtra("ReceiversImage");
         ReceiversUID=getIntent().getStringExtra("uid");
 
-        messagesArrayList=new ArrayList<>();
 
         profileImage=findViewById(R.id.profile_image);
         receiversName=findViewById(R.id.receiversName);
