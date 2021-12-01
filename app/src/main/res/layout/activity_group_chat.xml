@@ -26,19 +26,20 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="@dimen/_22sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:layout_marginStart="-5dp"
                 app:srcCompat="@drawable/back"
                 app:tint="@color/black" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginLeft="12dp"
-                android:src="@drawable/placeholder_profile_image" />
+                android:src="@drawable/community" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +52,7 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Community connect"
+                    android:text="Community"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />

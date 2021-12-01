@@ -24,8 +24,10 @@
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_12sdp"
-            android:background="@drawable/backbutton"
-            android:clickable="true" />
+            app:srcCompat="@drawable/back"
+            app:tint="@color/black"
+            android:clickable="true"
+            />
 
         <TextView
             android:layout_width="match_parent"

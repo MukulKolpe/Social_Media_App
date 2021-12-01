@@ -116,6 +116,12 @@ public class GroupChatActivity extends AppCompatActivity {
                     startActivityForResult(intent, 25);
                 }
             });
+            binding.imageView2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   finish();
+                }
+            });
         }
 
     }
@@ -167,4 +173,5 @@ public class GroupChatActivity extends AppCompatActivity {
             }
         }
     }
+
 }
