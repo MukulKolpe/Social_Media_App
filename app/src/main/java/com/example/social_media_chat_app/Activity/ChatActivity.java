@@ -51,16 +51,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ChatActivity extends AppCompatActivity {
 
     String ReceiversName, ReceiversImage, ReceiversUID, SenderUID;
-    CircleImageView profileImage;
     TextView receiversName;
     FirebaseDatabase database;
-    FirebaseAuth firebaseAuth;
     public static String sImage;
     public static String rImage;
-    ImageView back_btn;
 
-    CardView sendBtn;
-    EditText edtMessage;
 
     String senderRoom, receiverRoom;
 
@@ -85,7 +80,6 @@ public class ChatActivity extends AppCompatActivity {
             window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
         }
         database=FirebaseDatabase.getInstance();
-        firebaseAuth=FirebaseAuth.getInstance();
         storage=FirebaseStorage.getInstance();
 
         dialog= new ProgressDialog(this);
@@ -100,11 +94,14 @@ public class ChatActivity extends AppCompatActivity {
         ReceiversUID=getIntent().getStringExtra("uid");
 
 
-        profileImage=findViewById(R.id.profile_image);
-        receiversName=findViewById(R.id.receiversName);
+        binding.receiversName.setText(""+ReceiversName);
+        Picasso.get().load(ReceiversImage).into(binding.profileImage);
 
-        messageAdapter=findViewById(R.id.messageAdapter);
-        back_btn=findViewById(R.id.back_btn);
+
+      //  receiversName=findViewById(R.id.receiversName);
+
+       // messageAdapter=findViewById(R.id.messageAdapter);
+        SenderUID=FirebaseAuth.getInstance().getUid();
 
         database.getReference().child("presence").child(ReceiversUID).addValueEventListener(new ValueEventListener() {
             @Override
@@ -128,25 +125,21 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        SenderUID=firebaseAuth.getUid();
+
         senderRoom=SenderUID + ReceiversUID;
         receiverRoom=ReceiversUID + SenderUID;
+
        adapter= new MessagesAdapter(ChatActivity.this,messagesArrayList,senderRoom, receiverRoom);
-        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
-        messageAdapter.setLayoutManager(linearLayoutManager);
-       messageAdapter.setAdapter(adapter);
+       binding.messageAdapter.setLayoutManager(new LinearLayoutManager(this));
+       binding.messageAdapter.setAdapter(adapter);
 
 
-        sendBtn=findViewById(R.id.sendBtn);
-        edtMessage=findViewById(R.id.edtMessage);
+
+      //  Picasso.get().load(ReceiversImage).into(binding.profileImage);
+      //  binding.receiversName.setText(""+ReceiversName);
 
 
-        Picasso.get().load(ReceiversImage).into(profileImage);
-        binding.receiversName.setText(""+ReceiversName);
-
-
-        DatabaseReference reference= database.getReference().child("user").child(firebaseAuth.getUid());
+        DatabaseReference reference= database.getReference().child("user").child(FirebaseAuth.getInstance().getUid());
         DatabaseReference chatReference= database.getReference().child("chats").child(senderRoom).child("messages");
 
 
@@ -156,7 +149,7 @@ public class ChatActivity extends AppCompatActivity {
                 messagesArrayList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Messages messages=dataSnapshot.getValue(Messages.class);
-                    messages.setMessageId(snapshot.getKey());
+                    messages.setMessageId(dataSnapshot.getKey());
                     messagesArrayList.add(messages);
                 }
                 adapter.notifyDataSetChanged();
@@ -181,46 +174,43 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
-        sendBtn.setOnClickListener(new View.OnClickListener() {
+        binding.sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message=edtMessage.getText().toString();
-                if(message.isEmpty()){
+                String message=binding.edtMessage.getText().toString();
+                Date date=new Date();
+                Messages messages= new Messages(message, SenderUID, date.getTime());
+                binding.edtMessage.setText("");
+             /*   if(message.isEmpty()){
                     Toast.makeText(ChatActivity.this, "Please Enter Valid Messages", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                edtMessage.setText("");
-                Date date=new Date();
+                }*/
 
-                Messages messages= new Messages(message, SenderUID, date.getTime());
 
                 String randomKey=database.getReference().push().getKey();
 
-                database=FirebaseDatabase.getInstance();
-                assert randomKey != null;
                 database.getReference().child("chats")
                         .child(senderRoom)
                         .child("messages")
                         .child(randomKey)
-                        .setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        .setValue(messages).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                    public void onSuccess(Void unused) {
                         database.getReference().child("chats")
                                 .child(receiverRoom)
                                 .child("messages")
                                 .child(randomKey)
-                                .setValue(messages).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                .setValue(messages).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onComplete(@NonNull Task<Void> task) {
+                            public void onSuccess(Void unused) {
 
                             }
                         });
-
                     }
                 });
             }
         });
-        back_btn.setOnClickListener(new View.OnClickListener() {
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ChatActivity.this,HomeActivity.class));
@@ -298,22 +288,20 @@ public class ChatActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         String filePath=uri.toString();
-                                        String message=edtMessage.getText().toString();
+                                        String message=binding.edtMessage.getText().toString();
                                      /*   if(message.isEmpty()){
                                             Toast.makeText(ChatActivity.this, "Please Enter Valid Messages", Toast.LENGTH_SHORT).show();
                                             return;
                                         }*/
-                                        edtMessage.setText("");
                                         Date date=new Date();
-
                                         Messages messages= new Messages(message, SenderUID, date.getTime());
                                         messages.setMessage("photo");
                                         messages.setImageUrl(filePath);
+                                        binding.edtMessage.setText("");
 
                                         String randomKey=database.getReference().push().getKey();
 
-                                        database=FirebaseDatabase.getInstance();
-                                        assert randomKey != null;
+                                    //    database=FirebaseDatabase.getInstance();
                                         database.getReference().child("chats")
                                                 .child(senderRoom)
                                                 .child("messages")

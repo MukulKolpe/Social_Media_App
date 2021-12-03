@@ -58,6 +58,15 @@ public class MessagesAdapter extends RecyclerView.Adapter {
 
         }
     }
+    @Override
+    public int getItemViewType(int position) {
+        Messages messages = messagesArrayList.get(position);
+        if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(messages.getSenderId())) {
+            return ITEM_SEND;
+        } else {
+            return ITEM_RECEIVE;
+        }
+    }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
@@ -110,7 +119,9 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             if(messages.getMessage().equals("photo")){
                 viewHolder.binding.image.setVisibility(View.VISIBLE);
                 viewHolder.binding.txtMessages.setVisibility(View.GONE);
-                Picasso.get().load(messages.getImageUrl()).placeholder(R.drawable.placeholder).into(viewHolder.binding.image);
+                Picasso.get().load(messages.getImageUrl())
+                        .placeholder(R.drawable.placeholder)
+                        .into(viewHolder.binding.image);
             }
             viewHolder.binding.txtMessages.setText(messages.getMessage());
             if(messages.getFeeling() >= 0){
@@ -133,14 +144,16 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(sImage).into(viewHolder.circleImageView);
+            Picasso.get().load(sImage).into(viewHolder.binding.profileImage);
         } else {
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
 
             if(messages.getMessage().equals("photo")){
                 viewHolder.binding.image.setVisibility(View.VISIBLE);
                 viewHolder.binding.txtMessages.setVisibility(View.GONE);
-                Picasso.get().load(messages.getImageUrl()).placeholder(R.drawable.placeholder).into(viewHolder.binding.image);
+                Picasso.get().load(messages.getImageUrl())
+                        .placeholder(R.drawable.placeholder)
+                        .into(viewHolder.binding.image);
             }
             viewHolder.binding.txtMessages.setText(messages.getMessage());
             if(messages.getFeeling() >= 0){
@@ -163,7 +176,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(rImage).into(viewHolder.circleImageView);
+            Picasso.get().load(rImage).into(viewHolder.binding.profileImage);
 
         }
 
@@ -175,40 +188,31 @@ public class MessagesAdapter extends RecyclerView.Adapter {
         return messagesArrayList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        Messages messages = messagesArrayList.get(position);
-        if (FirebaseAuth.getInstance().getCurrentUser().getUid().equals(messages.getSenderId())) {
-            return ITEM_SEND;
-        } else {
-            return ITEM_RECEIVE;
-        }
-    }
 
     class senderViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleImageView;
-        TextView txtmessage;
+    //    CircleImageView circleImageView;
+    //    TextView txtmessage;
         SenderLayoutItemBinding binding;
 
         public senderViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            circleImageView = itemView.findViewById(R.id.profile_image);
-            txtmessage = itemView.findViewById(R.id.txtMessages);
+          //  circleImageView = itemView.findViewById(R.id.profile_image);
+          //  txtmessage = itemView.findViewById(R.id.txtMessages);
             binding = SenderLayoutItemBinding.bind(itemView);
         }
     }
 
     class ReceiverViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleImageView;
-        TextView txtmessage;
+      //  CircleImageView circleImageView;
+      //  TextView txtmessage;
         ReceiverLayoutItemBinding binding;
 
         public ReceiverViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            circleImageView = itemView.findViewById(R.id.profile_image);
-            txtmessage = itemView.findViewById(R.id.txtMessages);
+           // circleImageView = itemView.findViewById(R.id.profile_image);
+          //  txtmessage = itemView.findViewById(R.id.txtMessages);
             binding = ReceiverLayoutItemBinding.bind(itemView);
         }
     }

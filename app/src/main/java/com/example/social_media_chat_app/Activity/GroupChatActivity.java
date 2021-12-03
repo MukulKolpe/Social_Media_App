@@ -78,7 +78,7 @@ public class GroupChatActivity extends AppCompatActivity {
                     messagesArrayList.clear();
                     for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                         Messages messages=dataSnapshot.getValue(Messages.class);
-                        messages.setMessageId(snapshot.getKey());
+                        messages.setMessageId(dataSnapshot.getKey());
                         messagesArrayList.add(messages);
                     }
                     adapter.notifyDataSetChanged();

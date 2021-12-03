@@ -145,7 +145,7 @@ public class GroupMessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(sImage).into(viewHolder.circleImageView);
+            Picasso.get().load(sImage).into(viewHolder.binding.profileImage);
         } else {
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
 
@@ -193,7 +193,7 @@ public class GroupMessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(rImage).into(viewHolder.circleImageView);
+            Picasso.get().load(rImage).into(viewHolder.binding.profileImage);
 
         }
 
@@ -216,29 +216,29 @@ public class GroupMessagesAdapter extends RecyclerView.Adapter {
     }
 
     class senderViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleImageView;
-        TextView txtmessage;
+      //  CircleImageView circleImageView;
+     //   TextView txtmessage;
         GroupSenderItemBinding binding;
 
         public senderViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            circleImageView = itemView.findViewById(R.id.profile_image);
-            txtmessage = itemView.findViewById(R.id.txtMessages);
+         //   circleImageView = itemView.findViewById(R.id.profile_image);
+         //   txtmessage = itemView.findViewById(R.id.txtMessages);
             binding = GroupSenderItemBinding.bind(itemView);
         }
     }
 
     class ReceiverViewHolder extends RecyclerView.ViewHolder {
-        CircleImageView circleImageView;
-        TextView txtmessage;
+       // CircleImageView circleImageView;
+      //  TextView txtmessage;
         GroupReceiverItemBinding binding;
 
         public ReceiverViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            circleImageView = itemView.findViewById(R.id.profile_image);
-            txtmessage = itemView.findViewById(R.id.txtMessages);
+           // circleImageView = itemView.findViewById(R.id.profile_image);
+          //  txtmessage = itemView.findViewById(R.id.txtMessages);
             binding = GroupReceiverItemBinding.bind(itemView);
         }
     }
