@@ -144,7 +144,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(sImage).into(viewHolder.binding.profileImage);
+            Picasso.get().load(sImage).placeholder(R.drawable.placeholder_profile_image).into(viewHolder.binding.profileImage);
         } else {
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
 
@@ -176,7 +176,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
                     return false;
                 }
             });
-            Picasso.get().load(rImage).into(viewHolder.binding.profileImage);
+            Picasso.get().load(rImage).placeholder(R.drawable.placeholder_profile_image).into(viewHolder.binding.profileImage);
 
         }
 

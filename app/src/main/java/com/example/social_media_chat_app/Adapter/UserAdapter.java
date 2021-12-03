@@ -43,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
         holder.user_name.setText(users.name);
         holder.user_status.setText(users.status);
-        Picasso.get().load(users.imageUri).into(holder.user_profile);
+        Picasso.get().load(users.imageUri).placeholder(R.drawable.placeholder_profile_image).into(holder.user_profile);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

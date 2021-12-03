@@ -48,7 +48,7 @@ public class TopStatusAdapter extends RecyclerView.Adapter<TopStatusAdapter.TopS
         UserStatus userStatus= userStatuses.get(position);
         status lastStatus=userStatus.getStatuses().get(userStatus.getStatuses().size()-1);
 
-        Picasso.get().load(lastStatus.getImageUrl()).into(holder.binding.image);
+        Picasso.get().load(lastStatus.getImageUrl()).placeholder(R.drawable.placeholder).into(holder.binding.image);
         holder.binding.circularStatusView.setPortionsCount(userStatus.getStatuses().size());
         holder.binding.userName.setText(userStatus.getName());
         holder.binding.circularStatusView.setOnClickListener(new View.OnClickListener() {

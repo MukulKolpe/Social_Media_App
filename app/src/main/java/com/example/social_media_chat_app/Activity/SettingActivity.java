@@ -83,7 +83,7 @@ public class SettingActivity extends AppCompatActivity {
 
                 setting_name.setText(name);
                 setting_status.setText(status);
-                Picasso.get().load(image).into(setting_image);
+                Picasso.get().load(image).placeholder(R.drawable.placeholder_profile_image).into(setting_image);
 
             }
 
