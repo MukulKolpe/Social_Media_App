@@ -103,7 +103,7 @@
 
             <EditText
                 android:id="@+id/edtMessage"
-                android:layout_width="@dimen/_192sdp"
+                android:layout_width="@dimen/_198sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
@@ -118,7 +118,7 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_205sdp"
+                android:layout_marginStart="@dimen/_211sdp"
                 app:srcCompat="@drawable/ic_attachment"
                 app:tint="#508ED3" />
 

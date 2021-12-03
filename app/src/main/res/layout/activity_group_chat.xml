@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primary_purple"
+        android:background="@drawable/toolbar_item"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +29,8 @@
                 android:layout_width="@dimen/_26sdp"
                 android:layout_height="@dimen/_26sdp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:layout_marginStart="-5dp"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/back"
                 app:tint="@color/black" />
 
@@ -100,7 +100,7 @@
 
             <EditText
                 android:id="@+id/edtMessage"
-                android:layout_width="@dimen/_192sdp"
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@null"
@@ -115,7 +115,7 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_205sdp"
+                android:layout_marginStart="@dimen/_215sdp"
                 app:srcCompat="@drawable/ic_attachment"
                 app:tint="#508ED3" />
 
