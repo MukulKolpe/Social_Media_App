@@ -108,7 +108,8 @@
                 android:hint="message..."
                 android:paddingStart="@dimen/_7sdp"
                 android:textColorHint="#9BC3EF"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:inputType="textShortMessage"/>
 
             <ImageView
                 android:id="@+id/attachment"
