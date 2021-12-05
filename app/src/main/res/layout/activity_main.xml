@@ -42,6 +42,10 @@
 
             android:fontFamily="@font/spartan_thin"
             />
+        <ProgressBar
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_margin="@dimen/_5sdp"/>
     </LinearLayout>
 
 </RelativeLayout>

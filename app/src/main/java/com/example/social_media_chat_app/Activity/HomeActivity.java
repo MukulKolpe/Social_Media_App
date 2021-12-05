@@ -146,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+   /* @Override
     protected void onResume() {
         super.onResume();
         String currentId=FirebaseAuth.getInstance().getUid();
@@ -158,5 +158,5 @@ public class HomeActivity extends AppCompatActivity {
         super.onPause();
         String currentId=FirebaseAuth.getInstance().getUid();
         database.getReference().child("presence").child(currentId).setValue("Offline");
-    }
+    }*/
 }
