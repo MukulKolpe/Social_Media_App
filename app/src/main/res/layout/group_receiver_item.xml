@@ -17,17 +17,21 @@
         android:src="@drawable/profile"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_toRightOf="@+id/profile_image"
         android:background="@drawable/receiver_shape"
         android:orientation="vertical"
-        android:layout_margin="@dimen/_5sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_toRightOf="@+id/profile_image">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -35,9 +39,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:fontFamily="@font/spartan_bold"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:fontFamily="@font/spartan_bold"/>
+            android:textColor="@color/black"/>
 
         <View
             android:id="@+id/view"

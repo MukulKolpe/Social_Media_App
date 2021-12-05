@@ -13,7 +13,8 @@
         android:layout_height="@dimen/_42sdp"
         android:background="@drawable/toolbar_item"
         android:gravity="right"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="-10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -28,22 +29,14 @@
             />
         <ImageView
             android:id="@+id/img_setting"
-            android:layout_width="@dimen/_22sdp"
-            android:layout_height="@dimen/_22sdp"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
             android:layout_gravity="center"
             android:layout_marginRight="@dimen/_14sdp"
-            android:background="@drawable/settings"
-            android:backgroundTint="@color/black"
-            android:clickable="true" />
+           android:src="@drawable/settings"
+            android:outlineAmbientShadowColor="@color/black"
 
-        <ImageView
-            android:id="@+id/img_logOut"
-            android:layout_width="@dimen/_22sdp"
-            android:layout_height="@dimen/_22sdp"
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_14sdp"
-            android:background="@drawable/off"
-            android:backgroundTint="@color/black"
+
             android:clickable="true" />
 
     </LinearLayout>
@@ -70,8 +63,8 @@
 
         <ImageView
             android:id="@+id/chatBtn"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_22sdp"
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
@@ -82,8 +75,8 @@
 
         <ImageView
             android:id="@+id/storyBtn"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_24sdp"
             android:layout_gravity="center"
             android:src="@drawable/story"
             android:clickable="true"
@@ -91,8 +84,8 @@
             android:focusable="true" />
         <ImageView
             android:id="@+id/groupBtn"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_22sdp"
             android:layout_gravity="center"
             android:src="@drawable/groups"
             android:clickable="true"

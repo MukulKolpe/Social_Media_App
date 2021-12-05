@@ -17,7 +17,8 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="-5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -54,8 +55,8 @@
                     android:layout_height="wrap_content"
                     android:text="Community"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_18sdp"
+                    />
 
                 <TextView
                     android:id="@+id/status"

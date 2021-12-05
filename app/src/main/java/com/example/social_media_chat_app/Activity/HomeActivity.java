@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
     UserAdapter adapter;
     FirebaseDatabase database;
     ArrayList<Users> usersArrayList;
-    ImageView imgLogout,img_setting;
+    ImageView img_setting;
     ImageView storyBtn,groupBtn;
     View StoryBtnLayout;
 
@@ -83,7 +83,6 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-        imgLogout=findViewById(R.id.img_logOut);
         mainUserRecyclerView=findViewById(R.id.mainUserRecyclerView);
         mainUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new UserAdapter(HomeActivity.this, usersArrayList);
@@ -99,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        imgLogout.setOnClickListener(new View.OnClickListener() {
+     /*   imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Dialog dialog=new Dialog(HomeActivity.this, R.style.Dialoge);
@@ -129,7 +128,7 @@ public class HomeActivity extends AppCompatActivity {
                 dialog.show();
 
             }
-        });
+        });*/
 
 
         img_setting.setOnClickListener(new View.OnClickListener() {

@@ -63,8 +63,8 @@
         >
         <ImageView
             android:id="@+id/chatBtn"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_22sdp"
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
@@ -75,8 +75,8 @@
 
         <ImageView
             android:id="@+id/storySubmitBtn"
-            android:layout_width="@dimen/_90sdp"
-            android:layout_height="@dimen/_28sdp"
+            android:layout_width="@dimen/_83sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
             android:clickable="true"
             android:focusable="true"
@@ -86,7 +86,7 @@
 
         <ImageView
             android:id="@+id/groupBtn"
-            android:layout_width="@dimen/_90sdp"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:backgroundTint="@color/black"
