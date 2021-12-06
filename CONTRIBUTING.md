@@ -28,7 +28,7 @@ where "url you just copied" (without the quotation marks) is the url to this rep
 For example:
 
 ```
-git clone https://github.com/this-is-you/type-fast.git
+git clone https://github.com/this-is-you/Social_Media_App.git
 ```
 
 where `this-is-you` is your GitHub username. Here you're copying the contents of the first-contributions repository on GitHub to your computer.
@@ -38,7 +38,7 @@ where `this-is-you` is your GitHub username. Here you're copying the contents of
 Change to the repository directory on your computer (if you are not already there):
 
 ```
-cd type-fast
+cd Social_Media_App
 ```
 
 Now create a branch using the `git checkout` command:
@@ -67,7 +67,7 @@ git add .
 Now commit those changes using the `git commit` command:
 
 ```
-git commit -m "Add <your-name> to Contributors list"
+git commit -m "proper commit message"
 ```
 
 replacing `<your-name>` with your name.
