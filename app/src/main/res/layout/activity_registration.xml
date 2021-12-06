@@ -60,12 +60,12 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:autofillHints="name"
-                    android:fontFamily="@font/spartan_regular"
                     android:background="@drawable/edittext_shape"
+                    android:fontFamily="@font/spartan_regular"
                     android:hint="Name..."
                     android:padding="@dimen/_8sdp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="#333333" />
 
                 <EditText
                     android:id="@+id/reg_email"
@@ -82,7 +82,7 @@
                     android:hint="Email Address..."
                     android:padding="@dimen/_8sdp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="#333333" />
 
                 <EditText
                     android:id="@+id/reg_pass"
@@ -99,7 +99,7 @@
                     android:inputType="textPassword"
                     android:padding="@dimen/_8sdp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="#333333" />
 
                 <EditText
                     android:id="@+id/reg_cPass"
@@ -116,7 +116,7 @@
                     android:inputType="textPassword"
                     android:padding="@dimen/_8sdp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="#333333" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -136,7 +136,7 @@
             android:gravity="center"
             android:padding="@dimen/_10sdp"
             android:text="Sign Up"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
 
     </LinearLayout>

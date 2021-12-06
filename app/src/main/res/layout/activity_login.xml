@@ -56,7 +56,7 @@
             android:background="@drawable/edittext_shape"
             android:fontFamily="@font/spartan_regular"
             android:hint="Email Address..."
-            android:textColorHint="@color/black"
+            android:textColorHint="#333333"
             android:autofillHints="emailAddress"
             android:padding="@dimen/_8sdp"
             android:textColor="@color/black" />
@@ -73,7 +73,7 @@
             android:background="@drawable/edittext_shape"
             android:fontFamily="@font/spartan_regular"
             android:hint="Password..."
-            android:textColorHint="@color/black"
+            android:textColorHint="#333333"
             android:inputType="textPassword"
             android:padding="@dimen/_8sdp"
             android:textColor="@color/black" />
