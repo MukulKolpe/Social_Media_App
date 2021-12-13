@@ -26,8 +26,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -36,7 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     UserAdapter adapter;
     FirebaseDatabase database;
     ArrayList<Users> usersArrayList;
-    ImageView img_setting;
+    CircleImageView img_setting;
     ImageView storyBtn,groupBtn;
     View StoryBtnLayout;
 
@@ -129,6 +132,25 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });*/
+        DatabaseReference reference1=database.getReference().child("user").child(auth.getUid());
+
+        reference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String email=snapshot.child("email").getValue().toString();
+                String name=snapshot.child("name").getValue().toString();
+                String status=snapshot.child("status").getValue().toString();
+                String image=snapshot.child("imageUri").getValue().toString();
+
+                Picasso.get().load(image).placeholder(R.drawable.placeholder_profile_image).into(img_setting);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         img_setting.setOnClickListener(new View.OnClickListener() {

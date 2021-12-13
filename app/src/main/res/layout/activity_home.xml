@@ -14,7 +14,7 @@
         android:background="@drawable/toolbar_item"
         android:gravity="right"
         android:orientation="horizontal"
-        android:layout_marginTop="-10dp">
+        android:layout_marginTop="-8dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -27,17 +27,18 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_18sdp"
             />
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_setting"
-            android:layout_width="@dimen/_27sdp"
-            android:layout_height="@dimen/_27sdp"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            app:civ_border_color="@color/black"
+            app:civ_border_width="@dimen/_1sdp"
             android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_14sdp"
-           android:src="@drawable/settings"
+            android:layout_marginRight="@dimen/_18sdp"
+            android:src="@drawable/placeholder_profile_image"
             android:outlineAmbientShadowColor="@color/black"
-
-
-            android:clickable="true" />
+            android:clickable="true"
+            android:focusable="true" />
 
     </LinearLayout>
 
