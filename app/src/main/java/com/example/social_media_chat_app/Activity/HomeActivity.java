@@ -55,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         groupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Public channel", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(HomeActivity.this, GroupChatActivity.class));
             }
         });
@@ -96,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         storyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "Clicking", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeActivity.this, "Stories", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(HomeActivity.this, StoriesActivity.class));
             }
         });
