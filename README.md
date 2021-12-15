@@ -10,6 +10,16 @@ A social media app where users will be able to communicate in public channels as
 - Firebase
 - Android Studio
 
+## Libraries Used-
+
+[CircleImageView](https://github.com/hdodenhof/CircleImageView)  
+[picasso](https://github.com/square/picasso)  
+[android-reactions](https://github.com/pgreze/android-reactions)  
+[CircularStatusView](https://github.com/3llomi/CircularStatusView)  
+[StoryView](https://github.com/OMARIHAMZA/StoryView)  
+[sdp](https://github.com/intuit/sdp)
+
+
 
 ## Workflow-
 
