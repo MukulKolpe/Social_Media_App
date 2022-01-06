@@ -28,4 +28,4 @@ A social media app where users will be able to communicate in public channels as
 
 ## License📝
 
-### [MIT License](https://github.com/MukulKolpe/type-fast/blob/main/LICENSE)
+### [MIT License](https://github.com/MukulKolpe/Social_Media_App/blob/main/LICENSE)
