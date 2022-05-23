@@ -1,4 +1,4 @@
-# Social_Media_App
+# Social Media App
 
 ## Description
 
@@ -21,7 +21,7 @@ A social media app where users will be able to communicate in public channels as
 
 
 
-## Workflow-
+## User flow-
 
 ![Implementation drawio](https://user-images.githubusercontent.com/78664749/144966504-f289a55a-9885-4423-838f-7d0b1454fd1f.png)
 
