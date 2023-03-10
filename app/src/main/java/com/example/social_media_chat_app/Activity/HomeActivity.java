@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -60,12 +61,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
      //   getSupportActionBar().hide();
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
-        }
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
 
         DatabaseReference reference=database.getReference().child("user");
         reference.addValueEventListener(new ValueEventListener() {
@@ -73,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Users users= dataSnapshot.getValue(Users.class);
+                    assert users != null;
                     if(!users.getUid().equals(FirebaseAuth.getInstance().getUid()))
                         usersArrayList.add(users);
 
@@ -133,15 +133,16 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });*/
-        DatabaseReference reference1=database.getReference().child("user").child(auth.getUid());
+
+        DatabaseReference reference1=database.getReference().child("user").child(Objects.requireNonNull(auth.getUid()));
 
         reference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String email=snapshot.child("email").getValue().toString();
-                String name=snapshot.child("name").getValue().toString();
-                String status=snapshot.child("status").getValue().toString();
-                String image=snapshot.child("imageUri").getValue().toString();
+                String email= Objects.requireNonNull(snapshot.child("email").getValue()).toString();
+                String name= Objects.requireNonNull(snapshot.child("name").getValue()).toString();
+                String status= Objects.requireNonNull(snapshot.child("status").getValue()).toString();
+                String image= Objects.requireNonNull(snapshot.child("imageUri").getValue()).toString();
 
                 Picasso.get().load(image).placeholder(R.drawable.placeholder_profile_image).into(img_setting);
 

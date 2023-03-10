@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_chat.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_registration.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/activity_stories.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/dialog_layout.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/item_story.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/item_user_row.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/layout/receiver_layout_item.xml" value="0.2" />
+        <entry key="..\:/PROJECTS (2)/ANDROID/Social_Media_App/app/src/main/res/menu/tabs.xml" value="0.2" />
         <entry key="..\:/Users/Mukul Kolpe/AndroidStudioProjects/SocialMediaChatApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/Users/Mukul Kolpe/AndroidStudioProjects/SocialMediaChatApp/app/src/main/res/drawable-v24/receiver_shape.xml" value="0.2703125" />
         <entry key="..\:/Users/Mukul Kolpe/AndroidStudioProjects/SocialMediaChatApp/app/src/main/res/drawable-xhdpi/ic_attachment.xml" value="0.2703125" />
@@ -44,7 +55,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

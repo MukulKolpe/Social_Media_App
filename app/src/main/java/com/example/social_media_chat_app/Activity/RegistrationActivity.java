@@ -30,6 +30,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Objects;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -65,12 +67,10 @@ public class RegistrationActivity extends AppCompatActivity {
         btn_SignUp=findViewById(R.id.btn_SignUp);
 
        // getSupportActionBar().hide();
-        if (Build.VERSION.SDK_INT >= 21) {
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
-        }
+        Window window = this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.primary_purple));
 
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +101,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                DatabaseReference reference= database.getReference().child("user").child(auth.getUid());
+                                DatabaseReference reference= database.getReference().child("user").child(Objects.requireNonNull(auth.getUid()));
                                 StorageReference storageReference=storage.getReference().child("upload").child(auth.getUid());
                                 if(imageUri!=null){
                                     storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -112,15 +112,16 @@ public class RegistrationActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(Uri uri) {
                                                         imageURI=uri.toString();
-                                                        Users users=new Users(auth.getUid(), name, email, imageURI, status);
+                                                        Users users = new Users(auth.getUid(), name, email, imageURI, status);
                                                         reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                             @Override
                                                             public void onComplete(@NonNull Task<Void> task) {
                                                                 if(task.isSuccessful()){
                                                                     progressDialog.dismiss();
-                                                                   startActivity(new Intent(RegistrationActivity.this, HomeActivity.class));
+                                                                   startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                                                                 }else{
-                                                                    Toast.makeText(RegistrationActivity.this, "Error in creating a new user", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(RegistrationActivity.this, "Error in creating a new user first test", Toast.LENGTH_SHORT).show();
+                                                                    progressDialog.dismiss();
                                                                 }
 
                                                             }
